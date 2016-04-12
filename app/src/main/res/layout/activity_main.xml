@@ -9,8 +9,19 @@
     android:paddingTop="@dimen/activity_vertical_margin"
     tools:context="se.oscarb.movieapidemo.MainActivity">
 
-    <TextView
+    <EditText
+        android:id="@+id/movie-to-find"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <Button
+        android:onClick="findMovie"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="Find movie!"
+        />
+    <TextView
+        android:id="@+id/movie-information"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Information about movie would end up here..." />
 </RelativeLayout>
