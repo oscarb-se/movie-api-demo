@@ -20,7 +20,7 @@ public interface OpenMovieDatabaseInterface {
 
     @GET("/")
     Call<Movie> getMovie(@Query("t") String title,
-                         @Query("y") int year,
+                         @Query("y") String year,
                          @Query("plot") String plot,
                          @Query("r") String response);
 
