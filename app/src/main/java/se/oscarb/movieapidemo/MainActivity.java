@@ -17,6 +17,7 @@ public class MainActivity extends AppCompatActivity {
            <uses-permission android:name="android.permission.INTERNET" />
         3. För att konvertera informationen (från JSON till Java-objekt) så behöver vi GSON (en konverterare)
            compile 'com.google.code.gson:gson:2.6.2'
+           compile 'com.squareup.retrofit2:converter-gson:2.0.1'
         4. Förbered för att hämta JSON-data - skapa en klass som motsvarar det vi hämtar
            * Skapa klassen Movie
            * Lägg till instansvariabler för det du vill komma åt i JSON-datan
