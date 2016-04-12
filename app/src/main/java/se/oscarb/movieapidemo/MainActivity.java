@@ -5,6 +5,10 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import com.bumptech.glide.Glide;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -89,6 +93,14 @@ public class MainActivity extends AppCompatActivity {
                              returnedMovie.getRated()     -> "R"
                               */
 
+                             // Visa informationen i appen
+                             String movieInformation = returnedMovie.getTitle() + " släpptes " + returnedMovie.getReleased() + " och är " + returnedMovie.getRated() + "-rated";
+                             TextView textView = (TextView) findViewById(R.id.movie_information);
+                             textView.setText(movieInformation);
+
+                             // Visa filmens poster
+                             setMoviePoster(returnedMovie.getPoster());
+
                              Log.i("Movie", returnedMovie.getReleased());
 
                          }
@@ -96,17 +108,20 @@ public class MainActivity extends AppCompatActivity {
                          @Override
                          public void onFailure(Call<Movie> call, Throwable t) {
                             // Något gick fel när vi gjorde vår förfrågan
+                             TextView textView = (TextView) findViewById(R.id.movie_information);
+                             textView.setText("Kunde inte hänta data,");
                              Log.e("ERROR", "Kunde inte hämta data!");
                          }
                      }
-
         );
+    } // Slut på metoden findMovie
 
+    // Ladda in en bild!
+    public void setMoviePoster(String url) {
+        // Hämta imageview där bilden ska hamna
+        ImageView moviePosterView = (ImageView) findViewById(R.id.movie_poster);
 
-
-
-
-
-
+        // Sätt bilden på url i vår imageView
+        Glide.with(this).load(url).into(moviePosterView);
     }
 }

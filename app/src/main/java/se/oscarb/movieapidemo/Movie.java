@@ -18,6 +18,9 @@ public class Movie {
     @SerializedName("Released")
     private String released;
 
+    @SerializedName("Poster")
+    private String poster;
+
     // Instansmetoder
     public String getTitle() {
         return title;
@@ -33,5 +36,9 @@ public class Movie {
 
     public String getReleased() {
         return released;
+    }
+
+    public String getPoster() {
+        return poster;
     }
 }
