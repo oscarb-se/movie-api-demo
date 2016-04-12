@@ -6,10 +6,12 @@ import android.os.Bundle;
 public class MainActivity extends AppCompatActivity {
 
     /*
-        För att använda ett API
-        1. Lägg in Retrofit i build.gradle
-        2. Lägg in att vi använder oss av internet i manifestet:
-             <uses-permission android:name="android.permission.INTERNET" />
+        För att använda ett RESTful API i Android
+        1. Lägg in Retrofit i build.gradle (app)
+           compile 'com.squareup.retrofit2:retrofit:2.0.1'
+        2. Lägg in att vi använder oss av internet i AndroidManifest.xml:
+           <uses-permission android:name="android.permission.INTERNET" />
+        3.
 
      */
 

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,21 +7,29 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="se.oscarb.movieapidemo.MainActivity">
+    tools:context="se.oscarb.movieapidemo.MainActivity"
+    android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/movie-to-find"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content" />
-    <Button
-        android:onClick="findMovie"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Find movie!"
-        />
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/movie_to_find"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"/>
+        <Button
+            android:onClick="findMovie"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Find movie!"
+            />
+    </LinearLayout>
+
     <TextView
-        android:id="@+id/movie-information"
+        android:id="@+id/movie_information"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Information about movie would end up here..." />
-</RelativeLayout>
+</LinearLayout>
