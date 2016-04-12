@@ -4,6 +4,7 @@ import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
+import android.widget.EditText;
 
 import retrofit2.Call;
 import retrofit2.Callback;
@@ -44,6 +45,10 @@ public class MainActivity extends AppCompatActivity {
 
     // Instansmetod
     public void findMovie(View view) {
+        // Vilken film ska vi söka efter?
+        EditText editText = (EditText) findViewById(R.id.movie_to_find);
+        String movie = editText.getText().toString();
+
         // Adressen vi utgår ifrån
         String baseUrl = "http://www.omdbapi.com/";
 
@@ -55,9 +60,6 @@ public class MainActivity extends AppCompatActivity {
 
         // Börja kommunicera med Open Movie Database API
         OpenMovieDatabaseInterface omdbApi = retrofit.create(OpenMovieDatabaseInterface.class);
-
-        // Film vi ska söka efter
-        String movie = "The Matrix";
 
         // Vad vi vill göra:
         // http://www.omdbapi.com/?t=The+Matrix&y=&plot=short&r=json
@@ -79,6 +81,14 @@ public class MainActivity extends AppCompatActivity {
 
                              // Skapa ett objekt Movie från vår response
                              Movie returnedMovie = response.body();
+
+                             /* Nu kan vi använda följande för att få ut information om filmen
+                             returnedMovie.getTitle()     -> "The Matrix"
+                             returnedMovie.getReleased()  -> "31 Mar 1999"
+                             returnedMovie.getYear()      -> 1999
+                             returnedMovie.getRated()     -> "R"
+                              */
+
                              Log.i("Movie", returnedMovie.getReleased());
 
                          }
@@ -86,6 +96,7 @@ public class MainActivity extends AppCompatActivity {
                          @Override
                          public void onFailure(Call<Movie> call, Throwable t) {
                             // Något gick fel när vi gjorde vår förfrågan
+                             Log.e("ERROR", "Kunde inte hämta data!");
                          }
                      }
 
